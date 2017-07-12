@@ -4,14 +4,18 @@ candy = ["Reese's", "M&M's", "Twizzlers"]
 
 while True:
     choice = input("Would you like a SODA, some CHIPS, or a CANDY? ").lower()
-    if choice == 'soda':
-        snack = sodas.pop()
-    elif choice == 'chips':
-        snack = chips.pop()
-    elif choice == 'candy':
-        snack = candy.pop()
+    try:
+        if choice == 'soda':
+            snack = sodas.pop()
+        elif choice == 'chips':
+            snack = chips.pop()
+        elif choice == 'candy':
+            snack = candy.pop()
+        else:
+            print("Sorry, I didn't understand that.")
+            continue
+    except IndexError:
+        print("Sorry, we're all out of {}!".format(choice))
     else:
-        print("Sorry, I didn't understand that.")
-        continue
-    print("Here's your {}: {}".format(choice, snack))
+        print("Here's your {}: {}".format(choice, snack))
     
